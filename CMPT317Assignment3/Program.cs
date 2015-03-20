@@ -62,6 +62,10 @@ namespace CMPT317Assignment3
         /// </summary>
         static void RunSmallTestsCases()
         {
+            QuasigroupSolver.timeLimit = 10000; //10 second time limit for small problems
+            QuasigroupSolver.branchLimit = 1000000; //1 million branches
+            QuasigroupSolver.failLimit = 1000000; //1 million fails
+
             int dimension = 10;
 
             RunTestCases(dimension);
@@ -72,6 +76,10 @@ namespace CMPT317Assignment3
         /// </summary>
         static void RunMediumTestsCases()
         {
+            QuasigroupSolver.timeLimit = 90000; //bump search time to 90 seconds for medium problems
+            QuasigroupSolver.branchLimit = 10000000; //10 million branches
+            QuasigroupSolver.failLimit = 10000000; //10 million fails
+
             int dimension = 50;
 
             RunTestCases(dimension);
@@ -82,6 +90,10 @@ namespace CMPT317Assignment3
         /// </summary>
         static void RunLargeTestsCases()
         {
+            QuasigroupSolver.timeLimit = 180000; //bump search time to 3 minutes for bigger problems
+            QuasigroupSolver.branchLimit = 100000000; //100 million branches
+            QuasigroupSolver.failLimit = 100000000; //100 million fails
+
             int dimension = 100;
 
             RunTestCases(dimension);
@@ -97,11 +109,12 @@ namespace CMPT317Assignment3
             // a test with 19 solutions can't very well be compared to one with only 1
             // more solutions always take more time.
                     //OR DO THEY? INVESTIGATE WITH A SEPARATE TEST SET TO SEE IF ACTUALLY A FACTOR
-            bool verbosePrinting = false;
+            bool verbosePrinting = true;
             bool stopAtOne = true;
             
             GenerateTestCases(dimension);
 
+            Stopwatch totalRun = Stopwatch.StartNew(); //keep track of running time for full test set (AFTER generating any missing test problems)
             long watchStart = Stopwatch.GetTimestamp();
 
             //with 10% squares missing
@@ -111,7 +124,7 @@ namespace CMPT317Assignment3
             {
                 string filepath = datadir + dimension + "ten" + seeds[i] + ".txt";
                 QuasigroupSolver.readFile(filepath);
-                Console.WriteLine();
+                Console.WriteLine("\nTest For Seed: {0}", seeds[i]);
                 QuasigroupSolver.Solve(verbosePrinting, stopAtOne);
             }
             Console.WriteLine("Group time {0}", Stopwatch.GetTimestamp() - watchStart);
@@ -124,7 +137,7 @@ namespace CMPT317Assignment3
             {
                 string filepath = datadir + dimension + "twentyfive" + seeds[i] + ".txt";
                 QuasigroupSolver.readFile(filepath);
-                Console.WriteLine();
+                Console.WriteLine("\nTest For Seed: {0}", seeds[i]);
                 QuasigroupSolver.Solve(verbosePrinting, stopAtOne);
             }
             Console.WriteLine("Group time {0}", Stopwatch.GetTimestamp() - watchStart);
@@ -137,7 +150,7 @@ namespace CMPT317Assignment3
             {
                 string filepath = datadir + dimension + "fifty" + seeds[i] + ".txt";
                 QuasigroupSolver.readFile(filepath);
-                Console.WriteLine();
+                Console.WriteLine("\nTest For Seed: {0}", seeds[i]);
                 QuasigroupSolver.Solve(verbosePrinting, stopAtOne);
             }
             Console.WriteLine("Group time {0}", Stopwatch.GetTimestamp() - watchStart);
@@ -150,11 +163,17 @@ namespace CMPT317Assignment3
             {
                 string filepath = datadir + dimension + "seventyfive" + seeds[i] + ".txt";
                 QuasigroupSolver.readFile(filepath);
-                Console.WriteLine();
+                Console.WriteLine("\nTest For Seed: {0}", seeds[i]);
                 QuasigroupSolver.Solve(verbosePrinting, stopAtOne);
             }
             Console.WriteLine("Group time {0}", Stopwatch.GetTimestamp() - watchStart);
             watchStart = Stopwatch.GetTimestamp();
+
+            totalRun.Stop();
+            Console.WriteLine("\nTotal Test Running Time:\n Wall Time {0} \n Miliseconds {1} \n Ticks {2} ", 
+                totalRun.Elapsed, 
+                totalRun.ElapsedMilliseconds, 
+                totalRun.ElapsedTicks);
         }
 
         /// <summary>

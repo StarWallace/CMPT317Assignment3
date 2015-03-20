@@ -59,6 +59,11 @@ namespace CMPT317Assignment3
         static int n;
         static int[,] problem;
 
+        // search limits, maximums before automatic search exit - kim372
+        public static long timeLimit = 10000;      // Maximum searching time in ms
+        public static long branchLimit = 1000000;  // Maximum search tree branching factor
+        public static long failLimit = 1000000;    // Maximum number of failed solution attempts
+        public static long solutionLimit = 1000000;  // Maximum number of accepted solutions
 
         /**
          *
@@ -144,19 +149,25 @@ namespace CMPT317Assignment3
                                                   Solver.ASSIGN_MIN_VALUE);
 
             //limit search to 10 seconds, 1 million branches, 1 million fails, and 1 solution
-            SearchLimit sl = solver.MakeLimit(10000, 1000000, 1000000, 10000);
+            SearchLimit sl = solver.MakeLimit(timeLimit, branchLimit, failLimit, solutionLimit);
 
-            if (stopAtOne) //do we only want one?
+            if (stopAtOne) //do we only want one solution, or as many as we can find?
             {
-                StopAtOne(ref solver, db, sl);                
+                //StopAtOne(ref solver, db, sl);                
+                sl = solver.MakeLimit(timeLimit, branchLimit, failLimit, 1);
             }
-            else //or everything?
-            {
-                FindAllSolutions(ref solver, db, sl, x, verbosePrinting);
-            }
+
+            FindAllSolutions(ref solver, db, sl, x, verbosePrinting);
 
         }
 
+        /// <summary>
+        /// Initially intended for use as the single solution search, but doesn't allow for 
+        /// solution printing, so I opted against it
+        /// </summary>
+        /// <param name="solver"></param>
+        /// <param name="db"></param>
+        /// <param name="sl"></param>
         private static void StopAtOne(ref Solver solver, DecisionBuilder db, SearchLimit sl)
         {
 
@@ -165,6 +176,14 @@ namespace CMPT317Assignment3
             PrintMetrics(ref solver);
         }
 
+        /// <summary>
+        /// Nice clean way to start the search 
+        /// </summary>
+        /// <param name="solver">solver to search for</param>
+        /// <param name="db">decision builder to search with</param>
+        /// <param name="sl">search limit to cap the search range</param>
+        /// <param name="x">2d array of the problem decision data</param>
+        /// <param name="verbosePrinting">true - print all solutions, false - print only the problem and search metrics</param>
         private static void FindAllSolutions(ref Solver solver, DecisionBuilder db, SearchLimit sl, IntVar[,] x, bool verbosePrinting)
         {
             solver.NewSearch(db, sl);
@@ -189,6 +208,7 @@ namespace CMPT317Assignment3
                 }
                 foundsol = solver.NextSolution();
             } while (foundsol);
+
             Console.WriteLine("Search Limit crossed? " + sl.IsCrossed());
             PrintMetrics(ref solver);
 
