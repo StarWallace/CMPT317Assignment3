@@ -49,7 +49,7 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 17ms
+WallTime: 14ms
 Failures: 0
 Branches: 0 
 
@@ -101,7 +101,7 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 5ms
+WallTime: 6ms
 Failures: 0
 Branches: 0 
 
@@ -153,7 +153,7 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 5ms
+WallTime: 6ms
 Failures: 0
 Branches: 0 
 
@@ -260,7 +260,7 @@ Solutions: 1
 WallTime: 8ms
 Failures: 0
 Branches: 0 
-Group time 241062
+Group time: 231268 ticks
 
 25 PERCENT EMPTY
 
@@ -312,7 +312,7 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 11ms
+WallTime: 6ms
 Failures: 0
 Branches: 0 
 
@@ -468,7 +468,7 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 7ms
+WallTime: 6ms
 Failures: 0
 Branches: 0 
 
@@ -520,10 +520,10 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 11ms
+WallTime: 10ms
 Failures: 0
 Branches: 0 
-Group time 173887
+Group time: 140593 ticks
 
 50 PERCENT EMPTY
 
@@ -575,7 +575,7 @@ Solution #1
 Search Limit crossed? True
 
 Solutions: 1
-WallTime: 6643ms
+WallTime: 6684ms
 Failures: 141910
 Branches: 283784 
 
@@ -606,8 +606,8 @@ Search Limit crossed? True
 
 Solutions: 0
 WallTime: 10002ms
-Failures: 225779
-Branches: 451504 
+Failures: 224222
+Branches: 448391 
 
 Test For Seed: 3
 Problem:
@@ -657,7 +657,7 @@ Solution #1
 Search Limit crossed? True
 
 Solutions: 1
-WallTime: 159ms
+WallTime: 153ms
 Failures: 3061
 Branches: 6074 
 
@@ -740,9 +740,9 @@ Search Limit crossed? True
 
 Solutions: 0
 WallTime: 10002ms
-Failures: 259405
-Branches: 518768 
-Group time 92247201
+Failures: 255636
+Branches: 511231 
+Group time: 92364393 ticks
 
 75 PERCENT EMPTY
 
@@ -1005,4 +1005,9 @@ Solutions: 1
 WallTime: 9ms
 Failures: 150
 Branches: 153 
-Group time 200966
+Group time: 198440 ticks
+
+Total Test Running Time:
+ Wall Time:	00:00:27.0667208 
+ Milliseconds:	27066 
+ Ticks:		92934777 

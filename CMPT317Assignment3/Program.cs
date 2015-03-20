@@ -40,7 +40,7 @@ namespace CMPT317Assignment3
             seeds[3] = seed4;
             seeds[4] = seed5;
 
-            //QWH qwh = new QWH(50, 625, 12345);
+            //QWH qwh = new QWH(100, 2500, 12345);
 
             ////qwh.displayDetail();
 
@@ -53,8 +53,8 @@ namespace CMPT317Assignment3
             //GenerateTestCases(50);
 
             //RunSmallTestsCases();
-            RunMediumTestsCases();
-            //RunLargeTestsCases();
+            //RunMediumTestsCases();
+            RunLargeTestsCases();
         }
 
         /// <summary>
@@ -91,10 +91,10 @@ namespace CMPT317Assignment3
         static void RunLargeTestsCases()
         {
             QuasigroupSolver.timeLimit = 180000; //bump search time to 3 minutes for bigger problems
-            QuasigroupSolver.branchLimit = 100000000; //100 million branches
-            QuasigroupSolver.failLimit = 100000000; //100 million fails
+            QuasigroupSolver.branchLimit = 1000000000; //1 billion branches
+            QuasigroupSolver.failLimit = 1000000000; //1 billion fails
 
-            int dimension = 100;
+            int dimension = 50;
 
             RunTestCases(dimension);
         }
@@ -127,7 +127,7 @@ namespace CMPT317Assignment3
                 Console.WriteLine("\nTest For Seed: {0}", seeds[i]);
                 QuasigroupSolver.Solve(verbosePrinting, stopAtOne);
             }
-            Console.WriteLine("Group time {0}", Stopwatch.GetTimestamp() - watchStart);
+            Console.WriteLine("Group time: {0} ticks", Stopwatch.GetTimestamp() - watchStart);
             watchStart = Stopwatch.GetTimestamp();
 
             //with 25% squares missing
@@ -140,7 +140,7 @@ namespace CMPT317Assignment3
                 Console.WriteLine("\nTest For Seed: {0}", seeds[i]);
                 QuasigroupSolver.Solve(verbosePrinting, stopAtOne);
             }
-            Console.WriteLine("Group time {0}", Stopwatch.GetTimestamp() - watchStart);
+            Console.WriteLine("Group time: {0} ticks", Stopwatch.GetTimestamp() - watchStart);
             watchStart = Stopwatch.GetTimestamp();
 
             //with 50% squares missing
@@ -153,7 +153,7 @@ namespace CMPT317Assignment3
                 Console.WriteLine("\nTest For Seed: {0}", seeds[i]);
                 QuasigroupSolver.Solve(verbosePrinting, stopAtOne);
             }
-            Console.WriteLine("Group time {0}", Stopwatch.GetTimestamp() - watchStart);
+            Console.WriteLine("Group time: {0} ticks", Stopwatch.GetTimestamp() - watchStart);
             watchStart = Stopwatch.GetTimestamp();
 
             //with 75% squares missing
@@ -166,11 +166,11 @@ namespace CMPT317Assignment3
                 Console.WriteLine("\nTest For Seed: {0}", seeds[i]);
                 QuasigroupSolver.Solve(verbosePrinting, stopAtOne);
             }
-            Console.WriteLine("Group time {0}", Stopwatch.GetTimestamp() - watchStart);
+            Console.WriteLine("Group time: {0} ticks", Stopwatch.GetTimestamp() - watchStart);
             watchStart = Stopwatch.GetTimestamp();
 
             totalRun.Stop();
-            Console.WriteLine("\nTotal Test Running Time:\n Wall Time {0} \n Miliseconds {1} \n Ticks {2} ", 
+            Console.WriteLine("\nTotal Test Running Time:\n Wall Time:\t{0} \n Milliseconds:\t{1} \n Ticks:\t\t{2} ", 
                 totalRun.Elapsed, 
                 totalRun.ElapsedMilliseconds, 
                 totalRun.ElapsedTicks);

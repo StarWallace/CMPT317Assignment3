@@ -39,7 +39,7 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 14ms
+WallTime: 11ms
 Failures: 0
 Branches: 0 
 
@@ -207,10 +207,10 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 4ms
+WallTime: 3ms
 Failures: 0
 Branches: 0 
-Group time 189526
+Group time: 173648 ticks
 
 25 PERCENT EMPTY
 
@@ -378,7 +378,7 @@ Solution #1
 Search Limit crossed? False
 
 Solutions: 1
-WallTime: 3ms
+WallTime: 6ms
 Failures: 0
 Branches: 0 
 
@@ -423,7 +423,7 @@ Solutions: 1
 WallTime: 3ms
 Failures: 0
 Branches: 0 
-Group time 78279
+Group time: 91641 ticks
 
 50 PERCENT EMPTY
 
@@ -549,7 +549,7 @@ Solution #1
 Search Limit crossed? True
 
 Solutions: 1
-WallTime: 34ms
+WallTime: 33ms
 Failures: 1110
 Branches: 2201 
 
@@ -591,7 +591,7 @@ Solution #1
 Search Limit crossed? True
 
 Solutions: 1
-WallTime: 2979ms
+WallTime: 2932ms
 Failures: 99084
 Branches: 198154 
 
@@ -633,10 +633,10 @@ Solution #1
 Search Limit crossed? True
 
 Solutions: 1
-WallTime: 1257ms
+WallTime: 1208ms
 Failures: 33740
 Branches: 67467 
-Group time 14828033
+Group time: 14483612 ticks
 
 75 PERCENT EMPTY
 
@@ -678,7 +678,7 @@ Solution #1
 Search Limit crossed? True
 
 Solutions: 1
-WallTime: 4ms
+WallTime: 5ms
 Failures: 83
 Branches: 91 
 
@@ -804,7 +804,7 @@ Solution #1
 Search Limit crossed? True
 
 Solutions: 1
-WallTime: 4ms
+WallTime: 5ms
 Failures: 67
 Branches: 72 
 
@@ -849,4 +849,9 @@ Solutions: 1
 WallTime: 5ms
 Failures: 122
 Branches: 161 
-Group time 104632
+Group time: 119763 ticks
+
+Total Test Running Time:
+ Wall Time:	00:00:04.3304396 
+ Milliseconds:	4330 
+ Ticks:		14868755 
