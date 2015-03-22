@@ -10,7 +10,7 @@ The Latin Square Completion Problem deals with the problem of filling in a parti
 
 The following partial Latin Square 
 ```
- . 2 . . 4 
+. 2 . . 4 
 3 . 1 . . 
 . 4 . . . 
 2 . . . 3 
