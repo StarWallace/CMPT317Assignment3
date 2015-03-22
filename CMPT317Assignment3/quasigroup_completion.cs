@@ -212,7 +212,7 @@ public class QuasigroupCompletion
   } // end readFile
     
 
-//Removed to prevent main method conflict
+//Removed to prevent main method conflict - kim372
   //public static void Main(String[] args)
   //{
   //  String file = "";

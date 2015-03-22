@@ -145,7 +145,7 @@ namespace CMPT317Assignment3
             // Search
             //
             DecisionBuilder db = solver.MakePhase(x_flat,
-                                                  Solver.INT_VAR_SIMPLE,
+                                                  Solver.INT_VAR_SIMPLE, 
                                                   Solver.ASSIGN_MIN_VALUE);
 
             //limit search to 10 seconds, 1 million branches, 1 million fails, and 1 solution
