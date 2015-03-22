@@ -1,25 +1,29 @@
 # LATIN SQUARE COMPLETION
 
-**CMPT317 - KIRK MCCULLOCH – 11146754
-MARCH 20, 2015**
+*CMPT317 - KIRK MCCULLOCH – 11146754*
+
+*MARCH 20, 2015*
 
 ## PROBLEM DESCRIPTION
 A Latin Square is an NxN matrix of the positive integers 1 to N, such that no row or column contains the same value more than once. That is, each row and column contains a unique permutation of the numbers 1 to N. Latin Squares are similar to the well known Sudoku puzzles, except that they do not have the 3x3 block constraints and they can be of any order N, not just nine. Additionally, Latin Squares are related to quasigroups in that they can be used to represent the multiplication table of an order N quasigroup.
 The Latin Square Completion Problem deals with the problem of filling in a partial Latin Square. Given an order N Latin Square with some number of cells left blank (or zero), we seek to find a way to fill in the blank cells that results in a valid Latin Square. The example below should give a clearer picture. 
 
-The following partial Latin Square	Can be solved like so
-. 2 . . 4
-3 . 1 . .
-. 4 . . .
-2 . . . 3
+The following partial Latin Square 
+```
+ . 2 . . 4 
+3 . 1 . . 
+. 4 . . . 
+2 . . . 3 
 . . 2 1 .	
-
+```
 Can be solved like so
+```
 1 2 5 3 4
 3 5 1 4 2
 5 4 3 2 1
 2 1 4 5 3
 4 3 2 1 5
+```
 
 Some partial Latin Squares have one or many possible solutions and some cannot be solved at all. In my experiments, I used a generating program that works backwards from a complete square to a partial square, to ensure that all of the Latin Squares in testing have at least one possible solution.
 
@@ -66,7 +70,7 @@ After discovering the odd behavior at dimension 20 with 50% emptiness, I devised
 
 The other extra test I ran was to compare a range of dimensions at the same level of emptiness for a given seed value. At 25% emptiness, I tested the following dimensions, 15, 20, 50, 75, and 100. I ran this on all five seed values and did not get any interesting results. In all cases, 15 and 20 were solved trivially and only for seed 3 was it able to solve the dimension 50. All others failed. I also ran this test on a more granular range of 16 to 20, with 50% emptiness, which better reflects the point where the test squares became unsolvable. This set returned more strange results as seen previously. For seed 2 it was only able to solve dimensions 16 and 19. For seed 4 it solved all but dimension 18. The difficulty really does not seem to increase directly with these small size changes and the results still do not follow a discernible pattern.
 
-Further test results that I have not discussed directly here are included with the source. See the ../bin/Debug/ directory.
+Further test results that I have not discussed directly here are included with the source. See the `../bin/Debug/` directory.
 
 ## CONCLUSIONS
 
